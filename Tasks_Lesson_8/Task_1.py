@@ -22,7 +22,7 @@ def add_contact():
     patronymic = input("Введите отчество: ")
     phone_number = input("Введите номер телефона: ")
     with open("Tasks_Lesson_8/phonebook.txt", "a", encoding='utf-8') as f:
-        f.write(f"{surname},{name},{patronymic},{phone_number}\n")
+        f.writelines(f"{surname},{name},{patronymic},{phone_number}\n")
     print("Контакт успешно добавлен в телефонную книгу")
 
 # Определяем функцию для вывода всех записей в телефонной книге
@@ -56,7 +56,7 @@ def find_contacts():
 def export_contacts():
     with open("Tasks_Lesson_8/phonebook.txt", "r", encoding='utf-8') as f:
         contacts = f.read()
-    with open("exported_phonebook.txt", "w") as f:
+    with open("Tasks_Lesson_8/exported_phonebook.txt", "w", encoding='utf-8') as f:
         f.write(contacts)
     print("Телефонная книга успешно экспортирована в файл")
 
@@ -64,7 +64,7 @@ def export_contacts():
 def import_contacts():
     with open("Tasks_Lesson_8/imported_phonebook.txt", "r", encoding = 'utf-8') as f:
         contacts = f.readlines()
-        with open("phonebook.txt", "a") as f2:
+        with open("Tasks_Lesson_8/phonebook.txt", "a", encoding = 'utf-8') as f2:
             for contact in contacts:
                 f2.write(contact)
         print("Данные успешно импортированы в телефонную книгу")
